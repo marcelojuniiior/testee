@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <title>Concessionaria avaliação </title>
+</head>
+
+<body>
+    <header id="header">
+        <nav id="navegador">
+            <ul id="logo">
+                <img th:src="@{/images/logo.png}" alt="" width="100px" height="50px">
+            </ul>
+          <ul class="ulNav">
+            <li><a class="link" href="/">Inicio</a></li>
+            <li><a class="link" href="/veiculo">Veiculos</a></li> 
+            <li><a class="link" href="/categorias">Categorias</a></li>           
+          </ul>
+          <div class="nav-redes">
+            <img th:src="@{/images/facebook.png}" alt="" width="50px" height="50px">
+            <img th:src="@{/images/instagram.png}" alt="" width="50px" height="50px">
+            <img th:src="@{/images/whatsapp.png}" alt="" width="50px" height="50px">
+           </div>
+        </nav>
+    </header>
+    <section class="section-container categoria">
+        <section class="categorias">
+            <section class="opcaoCategorias">
+                <a href="/veiculo/novo"><img th:src="@{/images/createicon.png}" alt="" width="50px" height="50px"></a>
+            </section>
+            <h1>Veiculos:</h1>
+            <table class="table">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Modelo</th>
+                        <th scope="col">Cor</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Valor</th>  
+                        <th scope="col">Editar/Excluir</th>                       
+                    </tr>
+                </thead>
+                <tbody>
+                    <th:block th:each="veiculo : ${listadeveiculos}">
+                        <tr>
+                            <td>[[${veiculo.id}]]</td>
+                            <td>[[${veiculo.nome}]]</td>
+                            <td>[[${veiculo.modelo}]]</td>
+                            <td>[[${veiculo.cor}]]</td>
+                            <td>[[${veiculo.descricao}]]</td>
+                            <td>[[${veiculo.categoria}]]</td>           
+                            <td>[[${veiculo.valor}]]</td>
+                            <td>
+                                <a th:href="@{'/veiculo/editar/' + ${veiculo.id}}"><img th:src="@{/images/editicon.png}" alt="" width="30px" height="30px"></a>
+                                <a th:href="@{'/veiculo/delete/' + ${veiculo.id}}"><img th:src="@{/images/deleteicon.png}" alt="" width="30px" height="30px"></a>
+                            </td>                                             
+                        </tr>
+                    </th:block>
+                    
+                </tbody>
+            </table>
+        </section>
+
+    </section>
+    <footer id="footer">
+
+        <section class="footer-section">
+            <div class="footer-endereco">
+                <h3>ENDEREÇO</h3>
+                <p>Avenida mauro ramos, Florianópolis,Sc</p>
+
+            </div>
+            <div class="footer-endereco">
+                <h3>TELEFONE</h3>
+                <p>(48)3355-4808</p>
+            </div>            
+        </section>
+        <section class="footer-horario">
+            <div class="footer-data-h3">
+                <h3>Horarios de Atendimento</h3>
+            </div>
+            <div class="footer-data">
+                <p>De segunda a sexta,(08hs a 18hs)</p>
+                <p>Sabado e dominho, (11hs a 14hs)</p>
+                <p>Feriados, fechado</p>
+            </div>
+
+        </section>
+        <section class="footer-redes">
+            <img th:src="@{/images/facebook.png}" alt="" width="50px" height="50px">
+            <img th:src="@{/images/instagram.png}" alt="" width="50px" height="50px">
+            <img th:src="@{/images/whatsapp.png}" alt="" width="50px" height="50px">
+        </section>
+    </footer>
+</body>
+
+</html>
