@@ -30,6 +30,7 @@
             <h1>Alterar Categoria</h1>
             <form  action="#" th:action="@{/categorias/save}" th:object="${categorias}" method="post">                     
                 <label>Nome da categoria:</label><br />
+                <input type="hidden"  th:field="*{id}" name="id" /><br/><br/>
                 <input type="text"  th:field="*{nome}" name="categoria" /><br/><br/>
                 <input type="submit" value="ALTERAR" />
             </form>    

@@ -30,6 +30,7 @@
             <h1>Alterar Veículo</h1>
             <form  action="#" th:action="@{/veiculo/save}" th:object="${veiculos}" method="post">                     
                 <label>Nome do Veiculo:</label><br/>
+                <input type="hidden"  th:field="*{id}" name="id" /><br/><br/>
                 <input type="text" name="nome" th:field="*{nome}" required/><br />
                 <label>Modelo do Veiculo:</label><br/>
                 <input type="text" name="modelo" th:field="*{modelo}" required /><br />
